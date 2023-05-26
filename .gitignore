@@ -61,6 +61,3 @@ typings/
 .env.*
 !.env.example
 
-# images
-images/*.jpg
-images/*.pdf

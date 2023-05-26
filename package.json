@@ -1,14 +1,14 @@
 {
-  "name": "bundle-create",
+  "name": "assign-bundle-to-number",
   "version": "1.0.0",
   "description": "",
-  "main": "createBundle.js",
+  "main": "assign.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "node_modules/.bin/mocha --recursive",
-    "start": "npm test && node createBundle.js"
+    "start": "npm test && node assign.js"
   },
   "author": "katsumi takahashi",
   "license": "ISC",
