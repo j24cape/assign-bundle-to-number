@@ -73,7 +73,7 @@ const setBundle = async (twilioClient, bundles) => {
                 }
               });
           }
-          if (regulation.numberType === "toll_free") {
+          if (regulation.numberType === "toll-free") {
             tollFreeBundleSid = bundle.sid;
             await twilioClient.numbers.v2.regulatoryCompliance
               .bundles(bundle.sid)
