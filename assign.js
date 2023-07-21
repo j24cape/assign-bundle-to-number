@@ -25,15 +25,17 @@ const execSubAccount = async (account) => {
 
   // すでに登録済みのBundlesを確認
   await twilioClient.numbers.v2.regulatoryCompliance.bundles
-    .list()
+    .list({
+      hasValidUntilDate: false,
+      isoCountry: "JP",
+      sortBy: "date-updated",
+      sortDirection: "ASC",
+      status: "twilio-approved"
+    })
     .then(async (bundles) => {
       // すでにtwilio-approvedのBundleがある場合のみ対象にする
-      const targetBundles = bundles.filter(
-        (bundle) =>
-          bundle.status === "twilio-approved" && bundle.validUntil === null,
-      );
-      if (targetBundles.length > 0)
-        await setBundle(twilioClient, targetBundles);
+      if (bundles.length > 0)
+        await setBundle(twilioClient, bundles);
     })
     .catch((err) => {
       console.error(`*** ERROR ***\n${err}`);
